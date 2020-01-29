@@ -1,11 +1,14 @@
-'''takes 3 variables
-subreddit name should be the exact string or variable containing string of
-subreddit name
-
-reddit should be your reddit instance for praw
-client should be your client instance for mongodb'''
-
+'''
+scrape_reddit(subreddit_name, reddit, client)
+word_freq_filt(all_col_toke)
+'''
 def scrape_reddit(subreddit_name, reddit, client):
+    '''takes 3 variables
+    subreddit name should be the exact string or variable containing string of
+    subreddit name
+    
+    reddit should be your reddit instance for praw
+    client should be your client instance for mongodb'''
 #Step 0: Prepare libraries and packages
     import re
     import nltk
@@ -93,7 +96,8 @@ def scrape_reddit(subreddit_name, reddit, client):
     top_subreddit = subreddit.hot(limit=20)
     for submission in top_subreddit:
         all_col = mydb['dictionary']
-        all_col_raw = mydb['dictionary_raw']    
+        all_col_raw = mydb['dictionary_raw']
+        scrape_reddit.all_col_toke = mydb['dictionary_token']
         topics_dict = { "title": submission.title , "score":submission.score, 
                        "id":submission.id, "url":submission.url, 
                        "comms_num":submission.num_comments , 
@@ -115,7 +119,8 @@ def scrape_reddit(subreddit_name, reddit, client):
 #except for <'>
 #TODO: revisit digit removal
             comments_stream = comment.body
-            comments_stream = re.sub(r"[^'. A-Za-z]",'', comments_stream)
+            comments_stream = re.sub(r"[^'/. A-Za-z]",'', comments_stream)
+            comments_stream = re.sub(r"[/]",' ', comments_stream)
             comments_stream = re.sub(r"[.]",' ', comments_stream)
             comments_stream = re.sub(r'[\d]','', comments_stream)
             comments_stream = comments_stream.lower()
@@ -164,10 +169,41 @@ def scrape_reddit(subreddit_name, reddit, client):
             1 character, and join a second time to get cleaner data'''
             filtered_sentence = filtered_sentence.split()
             filtered_sentence = [i for i in filtered_sentence if len(i) > 1]
+            token_filtered_sent = {"message":filtered_sentence}
+            scrape_reddit.all_col_toke.insert_one(token_filtered_sent)
             filtered_sentence = ' '.join(filtered_sentence)
 #Step 10: Store processed messages in mongoDB        
             mydict2 = {"message":filtered_sentence}
             all_col.insert_one(mydict2)
         print("Done", submission.title)
             #comment_body =  comment_body + comment.body + "\n"
-    print("Done scraping")       
+    print("Done scraping") 
+     
+    
+
+def word_freq_filt(all_col_toke):
+    '''takes dataframe with tokenized messages as variable input,
+    if scrape_reddit() was run, it can take variable all_col_toke'''
+#Step 0: Prepare libraries, database, and dataframes
+    import pandas as pd
+    from collections import defaultdict
+    frequency = defaultdict(int)
+    new_frequency = defaultdict(int)
+    data_token = pd.DataFrame(list(all_col_toke.find()))
+    processed_messages = []
+#Step 1: Count words and record frequency
+    for messages in data_token['message']:
+        for text in messages:
+            frequency[text] += 1 
+#Step 2: Assuming words appearing once are unimportant, removed words appearing
+#less than 2 times
+        processed_corpus = [text for text in messages if frequency[text] >2]
+        for text in processed_corpus:
+            new_frequency[text] += 1
+#Step 3: Take filtered messages and create final list
+        processed_messages.append(processed_corpus)
+#Step 4: Convert final frequncy data into a dataframe   
+    wordfrequency = pd.DataFrame([new_frequency])
+    wordfrequency= wordfrequency.T
+    wordfrequency= wordfrequency.reset_index()
+    word_freq_filt.wordfrequency = wordfrequency.rename(columns= {"index" : "word", 0 : "Count"})
