@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Jan 21 13:05:00 2020
-
-@author: Matthew Li Yuen Fong
-"""
 from gensim.models import Word2Vec
 import pandas as pd
 from nltk.tokenize import word_tokenize
