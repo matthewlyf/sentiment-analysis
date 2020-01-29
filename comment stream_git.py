@@ -1,16 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Jan 21 15:10:26 2020
-
-@author: Matthew Li Yuen Fong
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Jan 17 13:54:22 2020
-
-@author: Matthew Li Yuen Fong
-"""
 
 import pprint
 import re
@@ -122,11 +109,6 @@ def get_yyyy_mm_dd_from_utc(dt):
 ############################################################################### 
 ############################################################################### 
 ############################################################################### 
-
-
-
-
-
 
 subreddit = reddit.subreddit('leagueoflegends') 
 top_subreddit = subreddit.hot(limit=20)
