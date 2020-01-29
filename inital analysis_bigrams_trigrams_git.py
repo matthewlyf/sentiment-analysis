@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Jan 23 16:26:52 2020
-
-@author: Matthew Li Yuen Fong
-"""
 import pymongo
 client = pymongo.MongoClient()
 import pandas as pd
