@@ -1,16 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Jan 23 13:00:43 2020
-
-@author: Matthew Li Yuen Fong
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Jan 14 16:31:56 2020
-
-@author: Matthew Li Yuen Fong
-"""
 import pandas as pd
 import pymongo
 import pyspark
