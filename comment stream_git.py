@@ -2,6 +2,12 @@
 scrape_reddit(subreddit_name, reddit, client)
 word_freq_filt(all_col_toke)
 '''
+class subreddit_snp:
+  def __init__(self, y0, y1, y2):
+     self.y0 = y0
+     self.y1 = y1
+     self.y2 = y2
+     
 def scrape_reddit(subreddit_name, reddit, client):
     '''takes 3 variables
     subreddit name should be the exact string or variable containing string of
@@ -177,8 +183,11 @@ def scrape_reddit(subreddit_name, reddit, client):
             all_col.insert_one(mydict2)
         print("Done", submission.title)
             #comment_body =  comment_body + comment.body + "\n"
-    print("Done scraping") 
-     
+    print("Done scraping")
+    y0 = mydb['dictionary_token']
+    y1 = mydb['dictionary']
+    y2 = mydb['dictionary_raw']
+    return subreddit_snp(y0,y1,y2)
     
 
 def word_freq_filt(all_col_toke):
@@ -207,3 +216,4 @@ def word_freq_filt(all_col_toke):
     wordfrequency= wordfrequency.T
     wordfrequency= wordfrequency.reset_index()
     word_freq_filt.wordfrequency = wordfrequency.rename(columns= {"index" : "word", 0 : "Count"})
+
