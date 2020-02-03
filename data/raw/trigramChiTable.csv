@@ -1,0 +1,9 @@
+,trigram,chi-sq
+0,"('www', 'youtube', 'com')",10244304.596321225
+1,"('com', 'leagueoflegends', 'comment')",7963687.581728039
+2,"('reddit', 'com', 'leagueoflegends')",7859102.456825931
+3,"('lol', 'gamepedia', 'com')",4470339.850523599
+4,"('www', 'reddit', 'com')",3993717.3315793322
+5,"('do', 'not', 'think')",85613.44488777433
+6,"('do', 'not', 'know')",62494.24957574849
+7,"('it', 'is', 'like')",39681.617674376896

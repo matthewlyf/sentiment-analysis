@@ -1,0 +1,9 @@
+,trigram,PMI
+0,"('lol', 'gamepedia', 'com')",16.568400045611696
+1,"('com', 'leagueoflegends', 'comment')",16.54997112069968
+2,"('reddit', 'com', 'leagueoflegends')",16.51361114852945
+3,"('www', 'youtube', 'com')",16.058390527920135
+4,"('www', 'reddit', 'com')",15.478263998489556
+5,"('do', 'not', 'think')",10.769473681312792
+6,"('do', 'not', 'know')",10.46480084328368
+7,"('it', 'is', 'like')",8.224477308040786
