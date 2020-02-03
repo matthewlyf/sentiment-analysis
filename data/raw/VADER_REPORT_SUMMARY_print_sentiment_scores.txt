@@ -1,0 +1,6 @@
+Overall sentiment dictionary is : {'neg': 0.107, 'neu': 0.711, 'pos': 0.181, 'compound': 1.0}
+sentence was rated as 10.7% Negative
+sentence was rated as 71.1% Neutral
+sentence was rated as 18.099999999999998% Positive
+Sentence Overall Rated As 
+Positive

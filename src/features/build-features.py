@@ -67,4 +67,5 @@ def tfidf(query, processed_messages):
         else:
             pass
     result = pd.concat([pd.Series(doc_no, name = "doc_no"), pd.Series(score_lst, name = "score"), pd.Series(msg, name = 'msg')], axis=1)
+    result.to_csv(raw_path+"query_results.csv")
     pprint.pprint(result.head())    
