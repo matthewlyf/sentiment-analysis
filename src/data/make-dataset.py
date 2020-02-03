@@ -6,7 +6,7 @@ from dotenv import load_dotenv, find_dotenv
 dotenv_path = find_dotenv()
 
 #Step 2: load up the entries as environment variables
-load_dotenv(dotenv_path)
+load_dotenv(dotenv_path, override=True)
 
 database_url = os.getenv("DATABASE_URL")
 REDDIT_CLIENT_ID = os.getenv("REDDIT_CLIENT_ID")
@@ -34,7 +34,6 @@ reddit = praw.Reddit(client_id= REDDIT_CLIENT_ID,
 #TODO: Update file paths for data export
 raw_path =  os.getenv("raw_path")
 processed_path =  os.getenv("processed_path")
-token_path = os.geten("token_path")
 subreddit_name = "leagueoflegends"
 submission_limit = 20
 #Step 0: Prepare libraries and packages
@@ -223,6 +222,6 @@ export_tokenized = mydb['dictionary_token']
 raw_df = pd.DataFrame(list(export_raw.find()))
 processed_df = pd.DataFrame(list(export_processed.find()))
 tokenized_df = pd.DataFrame(list(export_tokenized.find()))
-tokenize_df.to_csv(token_path)
-raw_df.to_csv(raw_path)
-processed_df.to_csv(processed_path)
+tokenized_df.to_csv(processed_path+"processed+tokenized.csv")
+raw_df.to_csv(raw_path+"raw.csv")
+processed_df.to_csv(processed_path+"processed.csv")
