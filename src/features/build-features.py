@@ -17,6 +17,7 @@ if scrape_reddit() was run, it can take variable all_col_toke'''
 import pandas as pd
 from collections import defaultdict
 frequency = defaultdict(int)
+
 data = pd.read_csv(raw_path+"raw.csv")
 
 data_token = pd.read_csv(processed_path+"processed+tokenized.csv")
@@ -70,5 +71,16 @@ def tfidf(query, processed_messages):
         else:
             pass
     result = pd.concat([pd.Series(doc_no, name = "doc_no"), pd.Series(score_lst, name = "score"), pd.Series(msg, name = 'msg'),pd.Series(processed_msg, name = 'processed_msg')], axis=1)
+    
+    frequency_q = defaultdict(int)
+    for messages in result['processed_msg']:
+        for text in messages:
+            frequency_q[text] += 1 
+    
+    wordfrequency_q = pd.DataFrame([frequency_q])
+    wordfrequency_q= wordfrequency_q.T
+    wordfrequency_q= wordfrequency_q.reset_index()
+    wordfrequency_q = wordfrequency_q.rename(columns= {"index" : "word", 0 : "Count"})
+    wordfrequency_q.to_csv(raw_path+"wordfrequency_query.csv")
     result.to_csv(raw_path+"query_results.csv")
     pprint.pprint(result.head())    
