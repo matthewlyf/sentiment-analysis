@@ -18,6 +18,7 @@ import pandas as pd
 from collections import defaultdict
 frequency = defaultdict(int)
 data = pd.read_csv(raw_path+"raw.csv")
+
 data_token = pd.read_csv(processed_path+"processed+tokenized.csv")
 processed_messages = []
 #.apply(eval) required as loading lists in read_csv doens't work)
@@ -56,16 +57,18 @@ def tfidf(query, processed_messages):
     sims = index[tfidf[query_bow]]
     doc_no = []
     score_lst = []
-    msg = []   
+    msg = []
+    processed_msg = []
     #returns top documents containing query and puts it in a dataframe.  This dataframe can be used for sentiment analysis
     for document_number, score in sorted(enumerate(sims), key=lambda x: x[1], reverse=True):
         #print(document_number, score, data['message'][document_number])
         if score > 0:
             doc_no.append(document_number)
             score_lst.append(score)
+            processed_msg.append(data_token['message'][document_number])
             msg.append(data['message'][document_number])#this is the result used in sentiment analysis
         else:
             pass
-    result = pd.concat([pd.Series(doc_no, name = "doc_no"), pd.Series(score_lst, name = "score"), pd.Series(msg, name = 'msg')], axis=1)
+    result = pd.concat([pd.Series(doc_no, name = "doc_no"), pd.Series(score_lst, name = "score"), pd.Series(msg, name = 'msg'),pd.Series(processed_msg, name = 'processed_msg')], axis=1)
     result.to_csv(raw_path+"query_results.csv")
     pprint.pprint(result.head())    
