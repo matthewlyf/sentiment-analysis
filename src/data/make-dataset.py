@@ -40,6 +40,7 @@ submission_limit = 20
 import pandas as pd
 import re
 import nltk
+from datetime import datetime
 nltk.download('stopwords')
 nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
@@ -112,6 +113,10 @@ APPOSTOPHES = {
 "'s" :"",
 "/s": "sarcasm",
 "/u": "user "}
+
+def get_yyyy_mm_dd_from_utc(dt):
+    date = datetime.utcfromtimestamp(dt) 
+    return str(date)
 #Step 1: Prepare mongoDB database
 subreddit = reddit.subreddit(subreddit_name)
 str_subreddit = subreddit_name+"_subreddit"
@@ -123,10 +128,10 @@ mycol = mydb[str_overview]
 #Step 2: Store top "N" submission titles from front page into mongoDB
 top_subreddit = subreddit.hot(limit=submission_limit)
 for submission in top_subreddit:
-    all_col = mydb['dictionary']
+    all_col = mydb['dictionary_processed']
     all_col_raw = mydb['dictionary_raw']
     
-    all_col_toke = mydb['dictionary_token']
+    all_col_toke = mydb['dictionary_processed+tokenized']
     topics_dict = { "title": submission.title , "score":submission.score, 
                    "id":submission.id, "url":submission.url, 
                    "comms_num":submission.num_comments , 
@@ -148,7 +153,7 @@ for submission in top_subreddit:
     submission.comments.replace_more(limit=None)
     for comment in submission.comments.list():
         mydict1 = {"message":comment.body}
-        raw_comment = {"message":comment.body}
+        raw_comment = {"message":comment.body, "title":str(submission.title), "timestamp": get_yyyy_mm_dd_from_utc(comment.created_utc)}
         all_col_raw.insert_one(raw_comment)
         new_col.insert_one(mydict1)      
 #Step 4: Extract comments and remove symbols, spaces, punctation, and digits
@@ -205,11 +210,11 @@ for submission in top_subreddit:
         1 character, and join a second time to get cleaner data'''
         filtered_sentence = filtered_sentence.split()
         filtered_sentence = [i for i in filtered_sentence if len(i) > 1]
-        token_filtered_sent = {"message":filtered_sentence}
+        token_filtered_sent = {"message":filtered_sentence, "topic": str(submission.title), "timestamp": get_yyyy_mm_dd_from_utc(comment.created_utc)}
         all_col_toke.insert_one(token_filtered_sent)
         filtered_sentence = ' '.join(filtered_sentence)
 #Step 10: Store processed messages in mongoDB        
-        mydict2 = {"message":filtered_sentence}
+        mydict2 = {"message":filtered_sentence, "topic":str(submission.title), "timestamp": get_yyyy_mm_dd_from_utc(comment.created_utc)}
         all_col.insert_one(mydict2)
     print("Done", submission.title)
         #comment_body =  comment_body + comment.body + "\n"
