@@ -1,4 +1,6 @@
-﻿Abstract | 
+pip install -U python-dotenv
+
+Abstract | 
 
 Insights gained from sentiment analysis (SA) have allowed businesses and users an opportunity to gain a deeper understanding of how communities perceive products, brands, topics, and/or services. Reddit is an American social news aggregation, web content rating, and discussion website and as of Jan 2020 according to Alexa Internet, it ranks as the fifth most visited website in the Canada and 18th in the world.  For users, one advantage to using reddit is that all topics are aggregated in a sub community (known as a subreddit) where individuals may post and comment on topics of specific interest to them.  By employing a generalized sentiment analysis script, we aim to mine the text to develop a generalised model that will analyse submissions and comments so that we can gain insights on what is currently trending in any subreddit in real-time.  Currently there are 2 popular approaches for analyzing text, the first utilizes a bag of words method and applies TF-IDF while the second employs a shallow 2-layer neural network that are trained to reconstruct the contexts of words known as words2vec.  For the scope of this project, our methodology is as follows; 1) Utilise Reddit’s api to scrape subreddit submission titles and comments 2) pre-process (stop words, symbols, apostrophes, lemmatize ) and tokenize text 3) upload the data to a MongoDB database 4) Apply TF-IDF, words2vec, and sentiment analysis models on the pre-processed text 5) Deploy streaming version to get live updates of subreddits.
 
