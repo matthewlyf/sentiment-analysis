@@ -1,0 +1,107 @@
+Accuracy: 70.30%
+[0.71520147 0.71275946 0.70299145 0.69627595 0.69200244 0.6996337
+ 0.70543346 0.70564885 0.70839695 0.6919084 ]
+Decision tree results
+              precision    recall  f1-score   support
+
+    Negative       0.68      0.67      0.67      1450
+     Neutral       0.31      0.21      0.25       315
+    Positive       0.64      0.70      0.67      1511
+
+    accuracy                           0.64      3276
+   macro avg       0.55      0.53      0.53      3276
+weighted avg       0.63      0.64      0.63      3276
+
+              precision    recall  f1-score   support
+
+    Negative       0.65      0.66      0.66      1442
+     Neutral       0.30      0.22      0.25       302
+    Positive       0.65      0.67      0.66      1532
+
+    accuracy                           0.63      3276
+   macro avg       0.53      0.52      0.52      3276
+weighted avg       0.62      0.63      0.62      3276
+
+              precision    recall  f1-score   support
+
+    Negative       0.65      0.68      0.67      1446
+     Neutral       0.32      0.22      0.26       326
+    Positive       0.66      0.68      0.67      1504
+
+    accuracy                           0.63      3276
+   macro avg       0.54      0.53      0.53      3276
+weighted avg       0.62      0.63      0.63      3276
+
+              precision    recall  f1-score   support
+
+    Negative       0.65      0.66      0.66      1443
+     Neutral       0.29      0.21      0.25       323
+    Positive       0.64      0.67      0.66      1510
+
+    accuracy                           0.62      3276
+   macro avg       0.53      0.52      0.52      3276
+weighted avg       0.61      0.62      0.62      3276
+
+              precision    recall  f1-score   support
+
+    Negative       0.65      0.64      0.65      1457
+     Neutral       0.32      0.20      0.25       340
+    Positive       0.61      0.67      0.64      1479
+
+    accuracy                           0.61      3276
+   macro avg       0.53      0.51      0.51      3276
+weighted avg       0.60      0.61      0.60      3276
+
+              precision    recall  f1-score   support
+
+    Negative       0.66      0.66      0.66      1447
+     Neutral       0.34      0.21      0.26       336
+    Positive       0.64      0.69      0.66      1493
+
+    accuracy                           0.63      3276
+   macro avg       0.54      0.52      0.53      3276
+weighted avg       0.62      0.63      0.62      3276
+
+              precision    recall  f1-score   support
+
+    Negative       0.64      0.64      0.64      1425
+     Neutral       0.33      0.24      0.28       333
+    Positive       0.63      0.67      0.65      1518
+
+    accuracy                           0.61      3276
+   macro avg       0.53      0.52      0.52      3276
+weighted avg       0.61      0.61      0.61      3276
+
+              precision    recall  f1-score   support
+
+    Negative       0.67      0.67      0.67      1464
+     Neutral       0.34      0.22      0.26       325
+    Positive       0.63      0.68      0.66      1486
+
+    accuracy                           0.63      3275
+   macro avg       0.55      0.52      0.53      3275
+weighted avg       0.62      0.63      0.62      3275
+
+              precision    recall  f1-score   support
+
+    Negative       0.66      0.67      0.66      1460
+     Neutral       0.29      0.18      0.22       301
+    Positive       0.65      0.69      0.67      1514
+
+    accuracy                           0.63      3275
+   macro avg       0.53      0.51      0.52      3275
+weighted avg       0.62      0.63      0.62      3275
+
+              precision    recall  f1-score   support
+
+    Negative       0.63      0.64      0.64      1390
+     Neutral       0.31      0.20      0.25       347
+    Positive       0.65      0.69      0.67      1538
+
+    accuracy                           0.62      3275
+   macro avg       0.53      0.51      0.52      3275
+weighted avg       0.60      0.62      0.61      3275
+
+Accuracy: 62.51%
+[0.63797314 0.62606838 0.63369963 0.62179487 0.60989011 0.62820513
+ 0.61385836 0.63114504 0.63206107 0.61648855]

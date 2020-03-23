@@ -1,0 +1,104 @@
+Support Vector Machine Results
+              precision    recall  f1-score   support
+
+    Negative       0.76      0.74      0.75      1450
+     Neutral       0.62      0.03      0.06       315
+    Positive       0.68      0.83      0.75      1511
+
+    accuracy                           0.72      3276
+   macro avg       0.69      0.54      0.52      3276
+weighted avg       0.71      0.72      0.68      3276
+
+              precision    recall  f1-score   support
+
+    Negative       0.74      0.73      0.74      1442
+     Neutral       0.75      0.04      0.08       302
+    Positive       0.69      0.83      0.75      1532
+
+    accuracy                           0.71      3276
+   macro avg       0.73      0.53      0.52      3276
+weighted avg       0.72      0.71      0.68      3276
+
+              precision    recall  f1-score   support
+
+    Negative       0.74      0.74      0.74      1446
+     Neutral       0.53      0.02      0.05       326
+    Positive       0.68      0.81      0.74      1504
+
+    accuracy                           0.70      3276
+   macro avg       0.65      0.53      0.51      3276
+weighted avg       0.69      0.70      0.67      3276
+
+              precision    recall  f1-score   support
+
+    Negative       0.73      0.74      0.73      1443
+     Neutral       0.42      0.02      0.05       323
+    Positive       0.67      0.80      0.73      1510
+
+    accuracy                           0.70      3276
+   macro avg       0.61      0.52      0.50      3276
+weighted avg       0.67      0.70      0.66      3276
+
+              precision    recall  f1-score   support
+
+    Negative       0.73      0.72      0.73      1457
+     Neutral       0.50      0.02      0.04       340
+    Positive       0.66      0.82      0.73      1479
+
+    accuracy                           0.69      3276
+   macro avg       0.63      0.52      0.50      3276
+weighted avg       0.68      0.69      0.66      3276
+
+              precision    recall  f1-score   support
+
+    Negative       0.74      0.73      0.73      1447
+     Neutral       0.53      0.02      0.05       336
+    Positive       0.67      0.83      0.74      1493
+
+    accuracy                           0.70      3276
+   macro avg       0.65      0.53      0.51      3276
+weighted avg       0.69      0.70      0.67      3276
+
+              precision    recall  f1-score   support
+
+    Negative       0.74      0.72      0.73      1425
+     Neutral       0.77      0.05      0.10       333
+    Positive       0.68      0.84      0.75      1518
+
+    accuracy                           0.71      3276
+   macro avg       0.73      0.54      0.52      3276
+weighted avg       0.71      0.71      0.67      3276
+
+              precision    recall  f1-score   support
+
+    Negative       0.74      0.74      0.74      1464
+     Neutral       0.77      0.03      0.06       325
+    Positive       0.68      0.82      0.74      1486
+
+    accuracy                           0.71      3275
+   macro avg       0.73      0.53      0.51      3275
+weighted avg       0.71      0.71      0.67      3275
+
+              precision    recall  f1-score   support
+
+    Negative       0.73      0.75      0.74      1460
+     Neutral       0.59      0.03      0.06       301
+    Positive       0.69      0.81      0.75      1514
+
+    accuracy                           0.71      3275
+   macro avg       0.67      0.53      0.52      3275
+weighted avg       0.70      0.71      0.68      3275
+
+              precision    recall  f1-score   support
+
+    Negative       0.72      0.72      0.72      1390
+     Neutral       0.57      0.02      0.04       347
+    Positive       0.68      0.82      0.74      1538
+
+    accuracy                           0.69      3275
+   macro avg       0.65      0.52      0.50      3275
+weighted avg       0.68      0.69      0.66      3275
+
+Accuracy: 70.30%
+[0.71520147 0.71275946 0.70299145 0.69627595 0.69200244 0.6996337
+ 0.70543346 0.70564885 0.70839695 0.6919084 ]
